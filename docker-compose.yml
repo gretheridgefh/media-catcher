@@ -148,9 +148,9 @@ services:
     hostname: qbittorrent
     container_name: "qbittorrent"
     volumes:
-      - ${USERDIR}/docker/qbittorrent:/config
-      - ${USERDIR}/Downloads/completed:/downloads
-      - ${USERDIR}/docker/shared:/shared
+      - /docker/qbittorrent:/config
+      - /Downloads/completed:/downloads
+      - /docker/shared:/shared
     ports:
       - "8112:8112"
       - "6881:6881"
@@ -169,10 +169,10 @@ services:
 #    hostname: sabnzbd
 #    container_name: "sabnzbd"
 #    volumes:
-#      - ${USERDIR}/docker/sabnzbd:/config
-#      - ${USERDIR}/Downloads/completed:/downloads
-#      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/sabnzbd:/config
+#      - /Downloads/completed:/downloads
+#      - /Downloads/incomplete:/incomplete-downloads
+#      - /docker/shared:/shared
 #    ports:
 #        - "XXXX:8080"
 #    restart: always
@@ -187,10 +187,10 @@ services:
 #    hostname: nzbget
 #    container_name: "nzbget"
 #    volumes:
-#      - ${USERDIR}/docker/sabnzbd:/config
-#      - ${USERDIR}/Downloads:/downloads
-#      - ${USERDIR}/Downloads/incomplete:/incomplete-downloads
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/sabnzbd:/config
+#      - /Downloads:/downloads
+#      - /Downloads/incomplete:/incomplete-downloads
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:6789"
 #    restart: always
@@ -208,11 +208,11 @@ services:
 #    hostname: radarr
 #    container_name: "radarr"
 #    volumes:
-#      - ${USERDIR}/docker/radarr:/config
-#      - ${USERDIR}/Downloads/completed:/downloads
-#      - ${USERDIR}/media/movies:/movies
+#      - /docker/radarr:/config
+#      - /Downloads/completed:/downloads
+#      - /media/movies:/movies
 #      - "/etc/localtime:/etc/localtime:ro"
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:7878"
 #    restart: always
@@ -227,10 +227,10 @@ services:
 #    hostname: couchpotato
 #    container_name: "couchpotato"
 #    volumes:
-#      - ${USERDIR}/docker/couchpotato:/config
-#      - ${USERDIR}/Downloads/completed:/downloads"
-#      - ${USERDIR}/media/movies:/movies"
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/couchpotato:/config
+#      - /Downloads/completed:/downloads"
+#      - /media/movies:/movies"
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:5050"
 #    restart: always
@@ -246,11 +246,11 @@ services:
     hostname: sonarr
     container_name: "sonarr"
     volumes:
-      - ${USERDIR}/docker/sonarr:/config
-      - ${USERDIR}/Downloads/completed:/downloads
-      - ${USERDIR}/media/tvshows:/tv
+      - /docker/sonarr:/config
+      - /Downloads/completed:/downloads
+      - /media/tvshows:/tv
       - "/etc/localtime:/etc/localtime:ro"
-      - ${USERDIR}/docker/shared:/shared
+      - /docker/shared:/shared
     ports:
         - "8989:8989"
     restart: always
@@ -265,11 +265,11 @@ services:
 #    hostname: lidarr
 #    container_name: "lidarr"
 #    volumes:
-#      - ${USERDIR}/docker/lidarr:/config
-#      - ${USERDIR}/Downloads:/downloads
-#      - ${USERDIR}/media/music:/music
+#      - /docker/lidarr:/config
+#      - /Downloads:/downloads
+#      - /media/music:/music
 #      - "/etc/localtime:/etc/localtime:ro"
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:8686"
 #    restart: always
@@ -284,10 +284,10 @@ services:
 #    hostname: sickrage
 #    container_name: "sickrage"
 #    volumes:
-#      - ${USERDIR}/docker/sickrage:/config
-#      - ${USERDIR}/Downloads/completed:/downloads
-#      - ${USERDIR}/media/tvshows:/tv
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/sickrage:/config
+#      - /Downloads/completed:/downloads
+#      - /media/tvshows:/tv
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:8081"
 #    restart: always
@@ -305,10 +305,10 @@ services:
 #    restart: always
 #    image: plexinc/pms-docker
 #    volumes:
-#      - ${USERDIR}/docker/plexms:/config
-#      - ${USERDIR}/Downloads/plex_tmp:/transcode
+#      - /docker/plexms:/config
+#      - /Downloads/plex_tmp:/transcode
 #      - /media/media:/media
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/shared:/shared
 #    ports:
 #      - "32400:32400/tcp"
 #      - "3005:3005/tcp"
@@ -334,9 +334,9 @@ services:
 #    restart: always
 #    image: linuxserver/tautulli
 #    volumes:
-#      - ${USERDIR}/docker/tautulli/config:/config
-#      - ${USERDIR}/docker/tautulli/logs:/logs:ro
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/tautulli/config:/config
+#      - /docker/tautulli/logs:/logs:ro
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:8181"
 #    environment:
@@ -351,8 +351,8 @@ services:
 #    restart: always
 #    image: linuxserver/ombi
 #    volumes:
-#      - ${USERDIR}/docker/ombi:/config
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/ombi:/config
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:3579"
 #    environment:
