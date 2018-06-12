@@ -17,8 +17,8 @@ services:
 #      - "XXXX:9000"
 #    volumes:
 #      - /var/run/docker.sock:/var/run/docker.sock
-#      - ${USERDIR}/docker/portainer/data:/data
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/portainer/data:/data
+#      - /docker/shared:/shared
 #    environment:
 #      - TZ=${TZ}
 
@@ -29,8 +29,8 @@ services:
 #    restart: always
 #    image: lsiocommunity/organizr
 #    volumes:
-#      - ${USERDIR}/docker/organizr:/config
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/organizr:/config
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:80"
 #    environment:
@@ -77,9 +77,9 @@ services:
 #      - /dev/ttyUSB1:/dev/ttyUSB1
 #      - /dev/ttyACM0:/dev/ttyACM0
 #    volumes:
-#      - ${USERDIR}/docker/homeassistant:/config
+#      - /docker/homeassistant:/config
 #      - /etc/localtime:/etc/localtime:ro
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:8123"
 #    privileged: true
@@ -107,11 +107,11 @@ services:
 #      - 1.0.0.1
 #    volumes:
 #      - /etc/localtime:/etc/localtime:ro
-#      - ${USERDIR}/docker/transmission-vpn:/data
-#      - ${USERDIR}/docker/shared:/shared
-#      - ${USERDIR}/Downloads:/data/watch
-#      - ${USERDIR}/Downloads/completed:/data/completed
-#      - ${USERDIR}/Downloads/incomplete:/data/incomplete
+#      - /docker/transmission-vpn:/data
+#      - /docker/shared:/shared
+#      - /Downloads:/data/watch
+#      - /Downloads/completed:/data/completed
+#      - /Downloads/incomplete:/data/incomplete
 #    environment:
 #      - OPENVPN_PROVIDER=IPVANISH
 #      - OPENVPN_USERNAME=ipvanish_username
@@ -368,9 +368,9 @@ services:
 #    hostname: hydra
 #    container_name: "hydra"
 #    volumes:
-#      - ${USERDIR}/docker/hydra:/config
-#      - ${USERDIR}/Downloads:/downloads
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/hydra:/config
+#      - /Downloads:/downloads
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:5075"
 #    restart: always
@@ -385,10 +385,10 @@ services:
     hostname: jackett
     container_name: "jackett"
     volumes:
-      - ${USERDIR}/docker/jackett:/config
-      - ${USERDIR}/Downloads/completed:/downloads
+      - /docker/jackett:/config
+      - /Downloads/completed:/downloads
       - "/etc/localtime:/etc/localtime:ro"
-      - ${USERDIR}/docker/shared:/shared
+      - /docker/shared:/shared
     ports:
       - "9117:9117"
     restart: always
@@ -405,7 +405,7 @@ services:
 #    container_name: "mariadb"
 #    hostname: mariadb
 #    volumes:
-#        - ${USERDIR}/docker/mariadb:/config
+#        - /docker/mariadb:/config
 #    ports:
 #      - target: 3306
 #        published: 3306
@@ -425,9 +425,9 @@ services:
 #    restart: always
 #    image: linuxserver/nextcloud
 #    volumes:
-#      - ${USERDIR}/docker/nextcloud:/config
-#      - ${USERDIR}/shared_data:/data
-#      - ${USERDIR}/docker/shared:/shared
+#      - /docker/nextcloud:/config
+#      - /shared_data:/data
+#      - /docker/shared:/shared
 #    ports:
 #      - "XXXX:443"
 #    environment:
