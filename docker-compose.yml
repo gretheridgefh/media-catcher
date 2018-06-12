@@ -203,23 +203,23 @@ services:
 ######### PERSONAL VIDEO RECORDERS ##########
 
 # Radarr – Movie Download and Management
-#  radarr:
-#    image: "linuxserver/radarr"
-#    hostname: radarr
-#    container_name: "radarr"
-#    volumes:
-#      - /docker/radarr:/config
-#      - /Downloads/completed:/downloads
-#      - /media/movies:/movies
-#      - "/etc/localtime:/etc/localtime:ro"
-#      - /docker/shared:/shared
-#    ports:
-#      - "XXXX:7878"
-#    restart: always
-#    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+  radarr:
+    image: "linuxserver/radarr"
+    hostname: radarr
+    container_name: "radarr"
+    volumes:
+      - /docker/radarr:/config
+      - /Downloads/completed:/downloads
+      - /media/movies:/movies
+      - "/etc/localtime:/etc/localtime:ro"
+      - /docker/shared:/shared
+    ports:
+      - "7878:7878"
+    restart: always
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
 
 # CouchPotato – Movie Download and Management (Alternative)
 #  couchpotato:
