@@ -248,7 +248,7 @@ services:
     volumes:
       - /docker/sonarr:/config
       - /Downloads/completed:/downloads
-      - /media/tvshows:/tv
+      - /home/gavin/media/tvshows:/tv
       - "/etc/localtime:/etc/localtime:ro"
       - /docker/shared:/shared
     ports:
