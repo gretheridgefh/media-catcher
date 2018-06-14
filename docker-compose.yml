@@ -433,4 +433,3 @@ services:
 #    environment:
 #      - PUID=1000
 #      - PGID=1001
-HArdcode variables
