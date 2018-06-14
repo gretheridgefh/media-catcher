@@ -20,7 +20,7 @@ services:
       - /mnt/NAS/docker/portainer/data:/data
       - /mnt/NAS/docker/shared:/shared
     environment:
-      - TZ=${TZ}
+      - TZ='Europe/London'
 
 # Organizer - Unified HTPC/Home Server Web Interface
 #  organizr:
@@ -34,9 +34,9 @@ services:
 #    ports:
 #      - "8080:80"
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 # WebUI for MariaDB
 #  phpmyadmin:
@@ -84,9 +84,9 @@ services:
 #      - "XXXX:8123"
 #    privileged: true
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 ######### DOWNLOADERS ##########
 
@@ -119,9 +119,9 @@ services:
 #      - OPENVPN_CONFIG="YYYYYYYYYYY" 
 #      - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
 #      - LOCAL_NETWORK=192.168.1.0/24
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 #      - TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true
 #      - TRANSMISSION_RPC_HOST_WHITELIST="127.0.0.1,192.168.*.*"
 #      - TRANSMISSION_RPC_PASSWORD=${TRANSMISSION_RPC_PASSWORD}
@@ -157,9 +157,9 @@ services:
       - "6881:6881/udp"
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
       - UMASK_SET=002
       - WEBUI_PORT=8112
 
@@ -177,9 +177,9 @@ services:
 #        - "XXXX:8080"
 #    restart: always
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 # NZBGet – Usenet (NZB) Downloader (Alternative)
 #  nzbget:
@@ -195,9 +195,9 @@ services:
 #      - "XXXX:6789"
 #    restart: always
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 
 ######### PERSONAL VIDEO RECORDERS ##########
@@ -217,9 +217,9 @@ services:
       - "7878:7878"
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
 
 # CouchPotato – Movie Download and Management (Alternative)
 #  couchpotato:
@@ -235,10 +235,10 @@ services:
 #      - "XXXX:5050"
 #    restart: always
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
+#      - PUID=1000
+#      - PGID=1001
 #      - UMASK_SET=002
-#      - TZ=${TZ}
+#      - TZ='Europe/London'
 
 # Sonarr – TV Show Download and Management
   sonarr:
@@ -255,9 +255,9 @@ services:
         - "8989:8989"
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
 
 #LIDARR - Music Download and Management
 #  lidarr:
@@ -274,9 +274,9 @@ services:
 #      - "XXXX:8686"
 #    restart: always
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
       
 # SickRage – TV Show Download and Management (Alternative)
 #  sickrage:
@@ -292,9 +292,9 @@ services:
 #      - "XXXX:8081"
 #    restart: always
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 ######### MEDIA SERVER APPS ##########
 
@@ -320,11 +320,11 @@ services:
 #      - "32413:32413/udp"
 #      - "32414:32414/udp"
 #    environment:
-#      - TZ=${TZ}
+#      - TZ='Europe/London'
 #      - HOSTNAME="Docker Plex"
 #      - PLEX_CLAIM="claim-YYYYYYYYY"
-#      - PLEX_UID=${PUID}
-#      - PLEX_GID=${PGID}
+#      - PLEX_UID=1000
+#      - PLEX_GID=1001
 #      - ADVERTISE_IP="http://SERVER-IP:32400/"
 
 # Tautulli (aka PlexPy) – Monitoring Plex Usage
@@ -340,9 +340,9 @@ services:
 #    ports:
 #      - "XXXX:8181"
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}  
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'  
 
 # Ombi – Accept Requests for your Media Server
 #  ombi:
@@ -356,9 +356,9 @@ services:
 #    ports:
 #      - "XXXX:3579"
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 ######### SEARCHERS ##########
 
@@ -375,9 +375,9 @@ services:
 #      - "XXXX:5075"
 #    restart: always
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ} 
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London' 
 
 # Jackett – Torrent Proxy
   jackett:
@@ -393,9 +393,9 @@ services:
       - "9117:9117"
     restart: always
     environment:
-      - PUID=${PUID}
-      - PGID=${PGID}
-      - TZ=${TZ}
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
 
 ######### UTILITIES ##########
 
@@ -414,9 +414,9 @@ services:
 #    restart: always
 #    environment:
 #      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-#      - PUID=${PUID}
-#      - PGID=${PGID}
-#      - TZ=${TZ}
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
 
 # NextCloud – Your Own Cloud Storage
 #  nextcloud:
@@ -431,5 +431,6 @@ services:
 #    ports:
 #      - "XXXX:443"
 #    environment:
-#      - PUID=${PUID}
-#      - PGID=${PGID}
+#      - PUID=1000
+#      - PGID=1001
+HArdcode variables
