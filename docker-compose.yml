@@ -17,8 +17,8 @@ services:
       - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
-      - ~/gcsmount/docker/docker/portainer/data:/data
-      - ~/gcsmount/docker/docker/shared:/shared
+      - /home/gavin/gcsmount/docker/docker/portainer/data:/data
+      - /home/gavin/gcsmount/docker/docker/shared:/shared
     environment:
       - TZ='Europe/London'
 
@@ -148,9 +148,9 @@ services:
     hostname: qbittorrent
     container_name: "qbittorrent"
     volumes:
-      - ~/gcsmount/docker/docker/qbittorrent:/config
-      - ~/gcsmount/docker/Downloads/completed:/downloads
-      - ~/gcsmount/docker/docker/shared:/shared
+      - /home/gavin/gcsmount/docker/docker/qbittorrent:/config
+      - /home/gavin/gcsmount/docker/Downloads/completed:/downloads
+      - /home/gavin/gcsmount/docker/docker/shared:/shared
     ports:
       - "8112:8112"
       - "6881:6881"
@@ -208,11 +208,11 @@ services:
     hostname: radarr
     container_name: "radarr"
     volumes:
-      - ~/gcsmount/docker/docker/radarr:/config
-      - ~/gcsmount/docker/Downloads/completed:/downloads
-      - ~/gcsmount/docker/media/movies:/movies
+      - /home/gavin/gcsmount/docker/docker/radarr:/config
+      - /home/gavin/gcsmount/docker/Downloads/completed:/downloads
+      - /home/gavin/gcsmount/docker/media/movies:/movies
       - "/etc/localtime:/etc/localtime:ro"
-      - ~/gcsmount/docker/docker/shared:/shared
+      - /home/gavin/gcsmount/docker/docker/shared:/shared
     ports:
       - "7878:7878"
     restart: always
@@ -246,11 +246,11 @@ services:
     hostname: sonarr
     container_name: "sonarr"
     volumes:
-      - ~/gcsmount/docker/docker/sonarr:/config
-      - ~/gcsmount/docker/Downloads/completed:/downloads
-      - ~/gcsmount/docker/media/tvshows:/tv
+      - /home/gavin/gcsmount/docker/docker/sonarr:/config
+      - /home/gavin/gcsmount/docker/Downloads/completed:/downloads
+      - /home/gavin/gcsmount/docker/media/tvshows:/tv
       - "/etc/localtime:/etc/localtime:ro"
-      - ~/gcsmount/docker/docker/shared:/shared
+      - /home/gavin/gcsmount/docker/docker/shared:/shared
     ports:
         - "8989:8989"
     restart: always
@@ -385,10 +385,10 @@ services:
     hostname: jackett
     container_name: "jackett"
     volumes:
-      - ~/gcsmount/docker/docker/jackett:/config
-      - ~/gcsmount/docker/Downloads/completed:/downloads
+      - /home/gavin/gcsmount/docker/docker/jackett:/config
+      - /home/gavin/gcsmount/docker/Downloads/completed:/downloads
       - "/etc/localtime:/etc/localtime:ro"
-      - ~/gcsmount/docker/docker/shared:/shared
+      - /home/gavin/gcsmount/docker/docker/shared:/shared
     ports:
       - "9117:9117"
     restart: always
