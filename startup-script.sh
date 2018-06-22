@@ -24,9 +24,10 @@ git config --global user.mail "gavin.etheridge@fasthosts.com"
 cd ~
 git clone https://github.com/gretheridgefh/media-catcher
 
-# mv ./gcsfuse.repo /etc/yum.repos.d/gcsfuse.repo
-# sudo yum update
-# sudo yum install -y gcsfuse
-# mkdir ~/gcsmount
-# gcsfuse bktgre ~/gcsmount
+sudo mv ./gcsfuse.repo /etc/yum.repos.d/gcsfuse.repo
+sudo yum update
+sudo yum install -y gcsfuse
+mkdir ~/gcsmount
+gcsfuse bktgre ~/gcsmount
 
+gsutil config -b
