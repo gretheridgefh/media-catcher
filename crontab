@@ -1,0 +1,7 @@
+# m h  dom mon dow    commannd
+05 07 * * * gsutil rm "gs://bktgre/NAS/Torrents/Organised/TV Shows/"**
+06 07 * * * gsutil rm "gs://bktgre/NAS/Torrents/Organised/Persistent/"**
+30 22 * * * gsutil cp -r /container_storage/persistent gs://bktgre/NAS/Torrents/Organised/Persistent
+40 22 * * * gsutil mv -r /container_storage/transient/tvshows/* "gs://bktgre/NAS/Torrents/Organised/TV Shows/"
+40 22 * * * gsutil mv -r /container_storage/transient/movies/* gs://bktgre/NAS/Torrents/Organised/movies/
+55 22 * * * gsutil iam ch allUsers:objectViewer gs://bktgre
