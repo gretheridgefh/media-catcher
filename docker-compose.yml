@@ -12,7 +12,7 @@ services:
     restart: always
     command: --templates http://templates/templates.json
     ports:
-      - "443:9000"
+      - "9000:9000"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - /container_storage/persistent/portainer/data:/data
@@ -72,8 +72,8 @@ services:
       - "/etc/localtime:/etc/localtime:ro"
       - /container_storage/transient/shared:/shared
     ports:
-        - "89:8989"
-        - "8989:8989"
+        - "443:8989"
+#        - "8989:8989"
     restart: always
     environment:
       - PUID=1000
