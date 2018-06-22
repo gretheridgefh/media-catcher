@@ -1,0 +1,80 @@
+#Reference: https://www.smarthomebeginner.com/docker-home-media-server-2018-basic
+#Requirement: Set environmental variables: USERDIR, PUID, PGID, MYSQL_ROOT_PASSWORD, and TZ as explained in the reference.
+
+version: "3.6"
+services:
+
+ #Portainer - WebUI for Containers
+  portainer:
+    image: portainer/portainer
+    hostname: portainer
+    container_name: portainer
+    restart: always
+    command: --templates http://templates/templates.json
+    ports:
+      - "9000:9000"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /home/gavin/docker/portainer/data:/data
+      - /home/gavin/docker/shared:/shared
+    environment:
+      - TZ='Europe/London'
+
+# qBittorrent without VPN – Bittorrent Downloader (Alternative)
+  qbittorrent:
+    image: "linuxserver/qbittorrent"
+    hostname: qbittorrent
+    container_name: "qbittorrent"
+    volumes:
+      - /home/gavin/docker/qbittorrent:/config
+      - /home/gavin/Downloads/completed:/downloads
+      - /home/gavin/docker/shared:/shared
+    ports:
+      - "8112:8112"
+      - "6881:6881"
+      - "6881:6881/udp"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
+      - UMASK_SET=002
+      - WEBUI_PORT=8112
+
+# Radarr – Movie Download and Management
+  radarr:
+    image: "linuxserver/radarr"
+    hostname: radarr
+    container_name: "radarr"
+    volumes:
+      - /home/gavin/docker/radarr:/config
+      - /home/gavin/Downloads/completed:/downloads
+      - /home/gavin/media/movies:/movies
+      - "/etc/localtime:/etc/localtime:ro"
+      - /home/gavin/docker/shared:/shared
+    ports:
+      - "7878:7878"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
+
+# Sonarr – TV Show Download and Management
+#  sonarr:
+#    image: "linuxserver/sonarr"
+#    hostname: sonarr
+#    container_name: "sonarr"
+#    volumes:
+#      - /home/gavin/docker/sonarr:/config
+#      - /home/gavin/Downloads/completed:/downloads
+#      - /home/gavin/media/tvshows:/tv
+#      - "/etc/localtime:/etc/localtime:ro"
+#      - /home/gavin/docker/shared:/shared
+#    ports:
+#        - "8989:8989"
+#    restart: always
+#    environment:
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
