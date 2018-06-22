@@ -61,20 +61,21 @@ services:
       - TZ='Europe/London'
 
 # Sonarr – TV Show Download and Management
-#  sonarr:
-#    image: "linuxserver/sonarr"
-#    hostname: sonarr
-#    container_name: "sonarr"
-#    volumes:
-#      - /container_storage/persistent/sonarr:/config
-#      - /container_storage/transient/downloads:/downloads
-#      - /container_storage/transient/tvshows:/tv
-#      - "/etc/localtime:/etc/localtime:ro"
-#      - /container_storage/transient/shared:/shared
-#    ports:
-#        - "8989:8989"
-#    restart: always
-#    environment:
-#      - PUID=1000
-#      - PGID=1001
-#      - TZ='Europe/London'
+  sonarr:
+    image: "linuxserver/sonarr"
+    hostname: sonarr
+    container_name: "sonarr"
+    volumes:
+      - /container_storage/persistent/sonarr:/config
+      - /container_storage/transient/downloads:/downloads
+      - /container_storage/transient/tvshows:/tv
+      - "/etc/localtime:/etc/localtime:ro"
+      - /container_storage/transient/shared:/shared
+    ports:
+        - "89:8989"
+        - "8989:8989"
+    restart: always
+    environment:
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
