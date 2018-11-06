@@ -80,18 +80,18 @@ services:
       - PGID=1001
       - TZ='Europe/London'
 
-  sabnzbd:
-    image: "linuxserver/sabnzbd"
-    container_name: "sabnzbd"
-    volumes:
-      - /container_storage/persistent/sabnzbd:/config
-      - /container_storage/transient/downloads/completed:/downloads
-      - /container_storage/transient/downloads/incomplete:/incomplete-downloads
-      - /container_storage/transient/shared:/shared
-    ports:
-        - "8080:8080"
-    restart: always
-    environment:
-      - PUID=1000
-      - PGID=1001
-      - TZ='Europe/London'
+#  sabnzbd:
+#    image: "linuxserver/sabnzbd"
+#    container_name: "sabnzbd"
+#    volumes:
+#      - /container_storage/persistent/sabnzbd:/config
+#      - /container_storage/transient/downloads/completed:/downloads
+#      - /container_storage/transient/downloads/incomplete:/incomplete-downloads
+#      - /container_storage/transient/shared:/shared
+#    ports:
+#        - "8080:8080"
+#    restart: always
+#    environment:
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
