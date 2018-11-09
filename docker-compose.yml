@@ -119,8 +119,8 @@ services:
       - /container_storage/transient/Downloads/incomplete:/data/incomplete
     environment:
       - OPENVPN_PROVIDER=PIA
-      - OPENVPN_USERNAME=p7616663
-      - OPENVPN_PASSWORD=o98SocHViDjNlXoY^h%2
+      - OPENVPN_USERNAME=
+      - OPENVPN_PASSWORD=
       - OPENVPN_CONFIG="nl.privateinternetaccess.com" 
       - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
       - LOCAL_NETWORK=192.168.1.0/24
