@@ -21,25 +21,25 @@ services:
       - TZ='Europe/London'
 
 # qBittorrent without VPN – Bittorrent Downloader (Alternative)
-  qbittorrent:
-    image: "linuxserver/qbittorrent"
-    hostname: qbittorrent
-    container_name: "qbittorrent"
-    volumes:
-      - /container_storage/persistent/qbittorrent:/config
-      - /container_storage/transient/downloads:/downloads
-      - /container_storage/transient/shared:/shared
-    ports:
-      - "8112:8112"
-      - "6881:6881"
-      - "6881:6881/udp"
-    restart: always
-    environment:
-      - PUID=1000
-      - PGID=1001
-      - TZ='Europe/London'
-      - UMASK_SET=002
-      - WEBUI_PORT=8112
+#  qbittorrent:
+#    image: "linuxserver/qbittorrent"
+#    hostname: qbittorrent
+#    container_name: "qbittorrent"
+#    volumes:
+#      - /container_storage/persistent/qbittorrent:/config
+#      - /container_storage/transient/downloads:/downloads
+#      - /container_storage/transient/shared:/shared
+#    ports:
+#      - "8112:8112"
+#      - "6881:6881"
+#      - "6881:6881/udp"
+#    restart: always
+#    environment:
+#      - PUID=1000
+#      - PGID=1001
+#      - TZ='Europe/London'
+#      - UMASK_SET=002
+#      - WEBUI_PORT=8112
 
 # Radarr – Movie Download and Management
   radarr:
@@ -95,3 +95,43 @@ services:
 #      - PUID=1000
 #      - PGID=1001
 #      - TZ='Europe/London'
+
+
+  transmission-vpn:
+    container_name: transmission-vpn
+    image: haugene/transmission-openvpn
+    cap_add:
+      - NET_ADMIN
+    devices:
+      - /dev/net/tun
+    restart: always
+    ports:
+    - "8112:9091"
+    dns:
+      - 1.1.1.1
+      - 1.0.0.1
+    volumes:
+      - /etc/localtime:/etc/localtime:ro
+      - /container_storage/persistent/transmission-vpn:/data
+      - /container_storage/transient/shared:/shared
+      - /container_storage/transient/Downloads:/data/watch
+      - /container_storage/transient/Downloads/completed:/data/completed
+      - /container_storage/transient/Downloads/incomplete:/data/incomplete
+    environment:
+      - OPENVPN_PROVIDER=PIA
+      - OPENVPN_USERNAME=p7616663
+      - OPENVPN_PASSWORD=o98SocHViDjNlXoY^h%2
+      - OPENVPN_CONFIG="nl.privateinternetaccess.com" 
+      - OPENVPN_OPTS=--inactive 3600 --ping 10 --ping-exit 60
+      - LOCAL_NETWORK=192.168.1.0/24
+      - PUID=1000
+      - PGID=1001
+      - TZ='Europe/London'
+      - TRANSMISSION_RPC_AUTHENTICATION_REQUIRED=true
+      - TRANSMISSION_RPC_HOST_WHITELIST="127.0.0.1,192.168.*.*"
+      - TRANSMISSION_RPC_PASSWORD=adminadmin 
+      - TRANSMISSION_RPC_USERNAME=admin
+      - TRANSMISSION_UMASK=002
+      - TRANSMISSION_RATIO_LIMIT=1.00
+      - TRANSMISSION_RATIO_LIMIT_ENABLED=true
+
